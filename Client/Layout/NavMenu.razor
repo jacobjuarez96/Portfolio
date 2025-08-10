@@ -3,12 +3,28 @@
         <NavLink href="/" class="nav-link">Jacob.dev</NavLink>
     </div>
 
-    <div class="main-links">
-        <NavLink href="/" class="nav-link" >Home</NavLink>
-        <NavLink href="/projects" class="nav-link">Projects</NavLink>
-        <NavLink href="/about" class="nav-link">About</NavLink>
-        <NavLink href="/contact" class="nav-link">Contact</NavLink>
+    <div class="main-links @(isMenuOpen ? "open" :"")">
+        <NavLink href="/" class="nav-link" @onclick="CloseMenu">Home</NavLink>
+        <NavLink href="/projects" class="nav-link" @onclick="CloseMenu">Projects</NavLink>
+        <NavLink href="/contact" class="nav-link" @onclick="CloseMenu">About</NavLink>
+        <NavLink href="/contact" class="nav-link" @onclick="CloseMenu">Contact</NavLink>
     </div>
+    <button class="menu-toggle" @onclick="ToggleMenu">
+        ☰
+    </button>
 </nav>
 
 
+@code {
+    private bool isMenuOpen = false;
+
+    private void ToggleMenu()
+    {
+        isMenuOpen = !isMenuOpen;
+    }
+
+    private void CloseMenu()
+    {
+        isMenuOpen = false;
+    }
+}
