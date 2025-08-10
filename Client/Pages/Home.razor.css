@@ -2,6 +2,10 @@
     font-size: 2.7rem;
 }
 
+h1:focus {
+    outline: none;
+}
+
 .home-page {
     min-height: 100vh;
     height: fit-content;
